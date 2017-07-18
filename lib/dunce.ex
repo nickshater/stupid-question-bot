@@ -1,17 +1,12 @@
-defmodule Dunce.Router do
-  use Trot.Router
+defmodule Dunce do
+  use Application
 
-  get "/" do
-    conn = put_resp_content_type(conn, "application/json")
+ def start(_type, _args) do
+  children = [
+    Plug.Adapters.Cowboy.child_spec(:http, Dunce.Router, [], [port: 6969])
+  ]
 
-    message = %{
-      "response_type" => "in_channel",
-      "text" => "DIPSHIT ALERT",
-      "attachments" => [ %{"text" => "sample text"}]
-    } 
-    |> Poison.encode!([])
-
-    send_resp(conn, 200, message)
-  end
-  import_routes Trot.NotFound
+  opts = [strategy: :one_for_one, name: Dunce.Supervisor]
+  Supervisor.start_link(children, opts)
+    end
 end
