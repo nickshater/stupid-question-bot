@@ -31,6 +31,7 @@ defmodule Dunce.Mixfile do
   defp deps do
   [{:cowboy, "~> 1.0.0"},
    {:plug, "~> 1.0"},
+   {:poison, "~> 1.4.0"},
   {:distillery, "~> 0.9"}]
   end
 end
