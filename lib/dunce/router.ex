@@ -10,11 +10,13 @@ defmodule Dunce.Router do
   end
 
   post "/" do
-    conn = put_resp_content_type(conn, "application/json")
-    %{"text" => text} = conn.params
+    %{"text" => text, "response_url" => url} = conn.params
      message = %{"response_type" => "in_channel", "text" => text}
     |> Poison.encode!([])
-    send_resp(conn, 200, message)
+    send_resp(conn, 200, "")
+    
+    HTTPoison.post(url, message, %{"Content_Type" => "application/json"})
+
   end
 
   match _ do

@@ -32,6 +32,7 @@ defmodule Dunce.Mixfile do
   [{:cowboy, "~> 1.0.0"},
    {:plug, "~> 1.0"},
    {:poison, "~> 1.4.0"},
-  {:distillery, "~> 0.9"}]
+   {:distillery, "~> 0.9"},
+   {:httpoison, "~> 0.12"}]
   end
 end
