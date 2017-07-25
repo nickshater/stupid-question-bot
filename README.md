@@ -1,19 +1,22 @@
 # Dunce
 
-**TODO: Add description**
+Dunce is an anonymous stupid question slash command for Slack. 
 
-## Installation
+Dunce was built to help with onboarding junior developers by allowing them
+to ask any question in slack without it being attributed to them. 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `dunce` to your list of dependencies in `mix.exs`:
+# Instructions
 
-```elixir
-def deps do
-  [{:dunce, "~> 0.1.0"}]
-end
+To set up first deploy application on your provider of choice
+
+Once you have deployed the application head to your slack channels customization page.
+From there create a custom slack slash command and point it to your deployed apps url or ip and port.
+
+
+
+In the slack text line enter
+
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/dunce](https://hexdocs.pm/dunce).
+/<your app name> <question text>
+```
 
